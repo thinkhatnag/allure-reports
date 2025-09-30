@@ -4,7 +4,12 @@ import allure from "allure-commandline"; // Import allure-commandline
 const { removeSync } = fsExtra; // Destructure removeSync
 import { exec } from "child_process";
 import allureReporter from "@wdio/allure-reporter";
-import fs from "fs";
+import dotenv from "dotenv";
+
+const env = process.env.TEST_ENV; // must be set via bash command
+dotenv.config({ path: `.env.${env}` });
+
+console.log(`Running tests in '${env}' environment`);
 
 EventEmitter.defaultMaxListeners = 50;
 
@@ -42,20 +47,12 @@ export const config = {
     // './test/spec/Existing_Patient.spec.js',
     //  './test/spec/New_Patient.spec.js',
 
-    //  './test/spec/Forgot_Password_ES.spec.js',
+    // './test/spec/Forgot_Password_ES.spec.js',
     // './test/spec/Login_Es.spec.js',
     // './test/spec/Settings_ES.spec.js',
     // './test/spec/Existing_Patient_ES.spec.js',
     './test/spec/New_Patient_ES.spec.js',
 
-    //'./test/spec/login.spec.js',
-
-    //'./test/spec/patient.spec.js',
-    //'./test/spec/encounter.spec.js',
-    // './test/spec/recording.spec.js',
-
-    //"./test/spec/sanityTest.spec.js"
-    // "./test/spec/.spec.js",
     
   ],
   // Patterns to exclude.

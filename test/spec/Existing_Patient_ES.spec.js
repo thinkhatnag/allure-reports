@@ -9,7 +9,6 @@ import {
 } from "/Users/nagasubarayudu/Desktop/IOS/helpers/helper.js";
 import allureReporter from "@wdio/allure-reporter";
 import SettingsPage from "/Users/nagasubarayudu/Desktop/IOS/test/screenObjectModel/setting.page.js";
-
 import SpanishLanguage from "../screenObjectModel/spanishLanguage.js";
 describe("Existing patient E2E flow in Spanish", () => {
   beforeEach(() => {
@@ -46,10 +45,10 @@ describe("Existing patient E2E flow in Spanish", () => {
     await AudioManeger.pauseAudio();
   });
   it("Offline mode app kill state verification", async () => {
-    await driver.terminateApp("com.thinkhat.noki"); // step verifying the app screen to be in recording screen only even in offline
+    await driver.terminateApp(process.env.BUNDLE_ID); // step verifying the app screen to be in recording screen only even in offline
     await driver.pause(5000);
-    await driver.activateApp("com.thinkhat.noki");
-    // await verifyAndClick(SpanishLanguage.errorOk);
+    await driver.activateApp(process.env.BUNDLE_ID);
+    //  await verifyAndClick(SpanishLanguage.errorOk);
     await waitForElement(SpanishLanguage.ContinueBtn);
     await verifyAndClick(SpanishLanguage.ContinueBtn);
     console.log(

@@ -85,6 +85,9 @@ class QuickActions {
   get ok() {
     return $("~Ok");
   }
+  get C_OK() {
+    return $("~OK");
+  }
   // get PatientInformationInFrench()
   // {
   //     return $('');
@@ -117,8 +120,8 @@ class QuickActions {
     await verify(this.quicktionsSearchField);
     await verifyAndClick(this.regenerateSoapNote);
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(RecordingPage.SoapNoteBtn);
     await RecordingPage.copyMailPrint();
   }
@@ -128,8 +131,8 @@ class QuickActions {
     await this.translateSoapNote.click();
     await this.spanish.click();
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.PatientInformationInSpnish);
     await RecordingPage.copyMailPrint();
 
@@ -141,8 +144,8 @@ class QuickActions {
     await this.translateSoapNote.click();
     await this.english.click();
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.PatientInformation);
   }
   // await driver.execute('mobile: swipe', { direction: 'up' });                  //icd and cpt codes
@@ -153,60 +156,60 @@ class QuickActions {
     await waitForElement(RecordingPage.quickActionButton);
     await verifyAndClick(this.quickActionButton);
     await verifyAndClick(this.generateIcdAndCptCodes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.icdAndCptCodes);
     await RecordingPage.copyMailPrint();
     await verifyAndClick(this.quickActionButton);
     await verifyAndClick(this.regenerateIcdAndCpt);
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.icdAndCptCodes);
     await RecordingPage.copyMailPrint();
   }
   async care_Plan() {
     await this.quickActionButton.click();
     await this.generateCarePlan.click();
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.carePlan);
     await RecordingPage.copyMailPrint();
     await verifyAndClick(this.quickActionButton);
     await verifyAndClick(this.regenerateCarePlan);
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.carePlan);
     await RecordingPage.copyMailPrint();
   }
   async feed_back() {
     await this.quickActionButton.click();
     await this.generateFeedBack.click();
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.feedBack);
     await RecordingPage.copyMailPrint();
     await verifyAndClick(this.quickActionButton);
     await verifyAndClick(this.regenerateFeedBack);
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.feedBack);
     await RecordingPage.copyMailPrint();
   }
   async referal_Letter() {
     await this.quickActionButton.click();
     await this.generateReferalLetter.click();
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.referalLetter);
     await RecordingPage.copyMailPrint();
     await this.quickActionButton.click();
     await verifyAndClick(this.regenerateReferalLetter);
     await verifyAndClick(this.yes);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await waitForElement(this.referalLetter);
     await RecordingPage.copyMailPrint();
   }

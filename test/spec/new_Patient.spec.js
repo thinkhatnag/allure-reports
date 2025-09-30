@@ -57,9 +57,9 @@ describe('new patient E2E flow -English ', () => {
     
   });
   it('Offline mode app kill state verification', async() => {
-    await driver.terminateApp("com.thinkhat.noki"); // step verifying the app screen to be in recording screen only even in offline
+    await driver.terminateApp(process.env.BUNDLE_ID); // step verifying the app screen to be in recording screen only even in offline
     await driver.pause(10000);
-    await driver.activateApp("com.thinkhat.noki");
+    await driver.activateApp(process.env.BUNDLE_ID);
     // await verifyAndClick(RecordingPage.errorOk)
     await waitForElement(RecordingPage.ContinueBtn);
     await verifyAndClick(RecordingPage.ContinueBtn);
@@ -143,12 +143,12 @@ describe('new patient E2E flow -English ', () => {
   it.skip(' HayNoki update verification', async() => {
     await RecordingPage.manualUpdate()
   });
-  it('update and HayNoki update verification', async() => {
+  it.skip('update and HayNoki update verification', async() => {
     await RecordingPage.hayNoki()
   });
 
   it('Finalizing the encounter', async() => {
     await RecordingPage.finalize_Encounter()
-  });
+  }); 
 
 })

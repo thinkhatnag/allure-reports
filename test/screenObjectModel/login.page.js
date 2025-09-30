@@ -1,4 +1,4 @@
-import { verify, verifyAndClick } from "../../helpers/helper";
+import { verify, verifyAndClick } from "../../helpers/helper.js";
 
 class LoginPage {
     get emailField() { return $('//XCUIElementTypeTextField[@value="Email*"]'); }
@@ -48,8 +48,10 @@ class LoginPage {
     }
 
     async restartApp() {
-        await driver.terminateApp('com.thinkhat.noki');
-        await driver.activateApp('com.thinkhat.noki');
+        const bundleId = process.env.BUNDLE_ID 
+
+        await driver.terminateApp(bundleId);
+        await driver.activateApp(bundleId);
     }
     async selectMultiTenant() {
        await this.multitenantDropDown.click();

@@ -12,7 +12,7 @@ describe("Forgot Password all scenarios in spanish", () => {
   it("Verify  message entering not rigistered email in forgot password screen", async () => {
     await LoginPage.restartApp();
     await verifyAndClick(SpanishLanguage.forgotPassword);
-    await SpanishLanguage.enterForgotPasswordEmail("bheema.badr@thinkhat.ai");
+    await SpanishLanguage.enterForgotPasswordEmail('nag.subbarayudu@gmail.com');
     await verify(SpanishLanguage.emailNotRegisteredError);
     await verifyAndClick(SpanishLanguage.loginLink);
   });
@@ -34,7 +34,7 @@ describe("Forgot Password all scenarios in spanish", () => {
   it.skip("Verify success message for entering correct email in forgot password screen", async () => {
     await LoginPage.restartApp();
     await verifyAndClick(SpanishLanguage.forgotPassword);
-    await SpanishLanguage.enterForgotPasswordEmail("bheema.badri@thinkhat.ai");
+    await SpanishLanguage.enterForgotPasswordEmail(process.env.Email);
     await verify(SpanishLanguage.successMessageForResetLink);
     await verifyAndClick(SpanishLanguage.continueToLogin);
   });

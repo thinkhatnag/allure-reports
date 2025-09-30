@@ -389,7 +389,7 @@ class SpanishLanguage {
     // // Pause for 5 seconds
     // await driver.pause(5000);
     // // Switch back to the original app
-    // await driver.activateApp("com.thinkhat.nokiTest");
+    // await driver.activateApp(process.env.BUNDLE_ID);
     // await HomePage.settings.click();
     // await verifyAndClick(this.help);
     await verifyAndClick(this.email);
@@ -404,7 +404,7 @@ class SpanishLanguage {
     }
     console.log("Gmail is active");
     await driver.pause(5000);
-    await driver.activateApp("com.thinkhat.nokiTest");
+    await driver.activateApp(process.env.BUNDLE_ID);
     // Open Settings and Help, then click text element to launch Messages
     await HomePage.settings.click();
     await verifyAndClick(this.help);
@@ -422,7 +422,7 @@ class SpanishLanguage {
     console.log("Messages is active");
     // Pause for 5 seconds and switch back
     await driver.pause(5000);
-    await driver.activateApp("com.thinkhat.nokiTest");
+    await driver.activateApp(process.env.BUNDLE_ID);
   }
   async launguageAndGeneralSettings() {
     await verifyAndClick(this.settings);
@@ -967,7 +967,7 @@ class SpanishLanguage {
     );
   }
   get finaliseEncounterOk() {
-    return $('//XCUIElementTypeButton[@name="Ok"]')
+    return $('//XCUIElementTypeButton[@name="Ok"]');
   }
   get finaliseEncounterCancel() {
     return $('//XCUIElementTypeButton[@name="Cancelar"]');
@@ -1073,9 +1073,7 @@ class SpanishLanguage {
     return $("~Ok");
   }
   get addPatientInformation() {
-    return $(
-      `~+  Add Información del Paciente`
-    );
+    return $(`~+  Add Información del Paciente`);
   }
   get save() {
     return $('//XCUIElementTypeButton[@name="Guardar"]');
@@ -1251,7 +1249,7 @@ class SpanishLanguage {
     await this.copyMailPrint();
   }
   async feed_Back() {
-    await waitForElement(this.quickActionButton);x
+    await waitForElement(this.quickActionButton);
     await this.quickActionButton.click();
     await this.generateFeedBack.click();
     await waitForElement(this.ok);
@@ -1282,7 +1280,7 @@ class SpanishLanguage {
     await waitForElement(this.referalLetter);
     await verifyAndClick(this.copyBtn);
     await verifyAndClick(this.mailBtn);
-    await verifyAndClick(RecordingPage.emailSentOk);
+    await verifyAndClick(RecordingPage.ok);
     await verifyAndClick(this.printBtn);
     await verifyAndClick(this.printPageCancel);
     await verifyAndClick(this.printPageBackBtn);
@@ -1313,7 +1311,7 @@ class SpanishLanguage {
     await this.male.click();
     await verify(this.cancel);
     await verifyAndClick(this.addAndProceed);
-    await RecordingPage.patientCreatedOk.click();
+    await RecordingPage.ok.click();
     return name;
   }
   async addPatitentWrn() {
@@ -1406,7 +1404,7 @@ class SpanishLanguage {
       await waitForElement(this.SoapNoteBtn);
       console.log("Recording successful: Transcript generated");
     }
-    await waitForElement(this.quickActionButton)
+    await waitForElement(this.quickActionButton);
     await verifyAndClick(this.Transcript);
     await verifyAndClick(this.Cdss);
     await driver.pause(2000);
@@ -1461,14 +1459,14 @@ class SpanishLanguage {
   async finalize_Encounter() {
     await waitForElement(this.SoapNoteBtn);
     await this.finaliseEncounter.click();
-    await this.finaliseEncounterOk.click();
+    await this.ok.click();
     await verify(this.finaliseEncounteSuccessrTxt);
     await driver.pause(5000);
     await LoginPage.restartApp();
   }
-get COK(){
-  return $('~OK')
-}
+  get COK() {
+    return $("~OK");
+  }
   async multiple_Conversation() {
     await waitForElement(this.AddConversation);
     await verifyAndClick(this.AddConversation);
@@ -1485,7 +1483,7 @@ get COK(){
     await waitForElement(this.finaliseEncounter);
     await verifyAndClick(this.finaliseEncounter);
     await driver.pause(3000);
-    await verifyAndClick(this.OK);
+    await verifyAndClick(this.COK);
     await verifyAndClick(this.resumeConversationForMultipleConverstionScenario);
     await verifyAndClick(
       this.resumeConversationForMultipleConverstionScenarioYes
@@ -1520,7 +1518,7 @@ get COK(){
   async third_Conversations_For_Existing_Patient() {
     await this.multiple_Conversation();
     await verify(this.PrevEncounterRef);
-    await verifyAndClick(this.PrevEncounterRefNo)
+    await verifyAndClick(this.PrevEncounterRefNo);
   }
 
   async recordAudioforOfflineMode() {
@@ -1629,18 +1627,18 @@ get COK(){
   }
   async UpdatePatientInfo() {
     await waitForElement(this.update);
-    await verifyAndClick(this.update)
-    await verifyAndClick(this.addPatientInformation)
+    await verifyAndClick(this.update);
+    await verifyAndClick(this.addPatientInformation);
     await verifyAndClick(this.title);
-    await this.titleTextField.setValue("Blood Group");
+    await this.titleTextField.setValue("Grupo sanguíneo");
     await verifyAndClick(this.Discription);
-    await this.discriptionTextField.setValue("O positive");
+    await this.discriptionTextField.setValue("B postivo");
     await verifyAndClick(this.add);
     await verifyAndClick(this.save);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
-    await this.bloodGroup("Blood Group");
-    await this.bloodName("O positive");
+    await waitForElement(this.COK);
+    await verifyAndClick(this.COK);
+    await this.bloodGroup("Grupo sanguíneo");
+    await this.bloodName("O postivo");
   }
 
   get SoapNoteScreenTxtFieldEntry() {
@@ -1652,13 +1650,13 @@ get COK(){
   async manualUpdate() {
     await waitForElement(this.SoapNoteScreenTxtField);
     await verifyAndClick(this.SoapNoteScreenTxtField);
-    await this.SoapNoteScreenTxtFieldEntry.setValue("Blood Group O negitive");
+    await this.SoapNoteScreenTxtFieldEntry.setValue("Grupo sanguíneo O postivo");
     await verifyAndClick(this.doneBtn);
     await verifyAndClick(this.send);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
-    await this.bloodGroup("Blood Group");
-    await this.bloodName("O negitive");
+    await waitForElement(this.COK);
+    await verifyAndClick(this.COK);
+    await this.bloodGroup("Grupo sanguíneo");
+    await this.bloodName("O negativo");
   }
   get MicStop() {
     return $("~micBackgroundImage");

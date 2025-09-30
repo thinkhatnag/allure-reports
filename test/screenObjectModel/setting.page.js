@@ -1,4 +1,4 @@
- import {
+import {
   verifyAndClick,
   verify,
 } from "/Users/nagasubarayudu/Desktop/IOS/helpers/helper.js";
@@ -210,7 +210,7 @@ class SettingsPage {
   }
 
   async profileSettingScreen() {
-    await verifyAndClick(this.profileSettings)
+    await verifyAndClick(this.profileSettings);
     await verifyAndClick(this.edit);
     await verifyAndClick(this.firstName);
     await this.firstName.clearValue();
@@ -258,9 +258,7 @@ class SettingsPage {
     await verifyAndClick(this.profileEditback);
   }
 
- 
   async support_VerifiCation() {
-   
     // await verifyAndClick(this.help);
     // await verifyAndClick(this.phone);
 
@@ -281,7 +279,7 @@ class SettingsPage {
     // // Pause for 5 seconds
     // await driver.pause(5000);
     // Switch back to the original app
-    // await driver.activateApp("com.thinkhat.nokiTest");
+    // await driver.activateApp(process.env.BUNDLE_ID);
     await HomePage.settings.click();
     await verifyAndClick(this.help);
     await verifyAndClick(this.email);
@@ -296,7 +294,7 @@ class SettingsPage {
       );
     }
     console.log("Gmail is active");
-    await driver.activateApp("com.thinkhat.nokiTest");
+    await driver.activateApp(process.env.BUNDLE_ID);
     // Open Settings and Help, then click text element to launch Messages
     await HomePage.settings.click();
     await verifyAndClick(this.help);
@@ -313,28 +311,28 @@ class SettingsPage {
     }
     console.log("Messages is active");
     // Pause for 5 seconds and switch back
-    await driver.activateApp("com.thinkhat.nokiTest");
+    await driver.activateApp(process.env.BUNDLE_ID);
   }
-  async launguageAndGeneralSettings(){
-    await verifyAndClick(this.launguage)
-    await verifyAndClick(this.spanish)
-    await verify(this.Idioma)
-    await verifyAndClick(this.launguage)
-    await verifyAndClick(this.english)
-    await verifyAndClick(this.generalSettings)
-    await verifyAndClick(this.selectAllOff)
-    await verifyAndClick(this.Done)
-    await verifyAndClick(this.generalSettings)
-    await verify(this.cdssDisabled)
-    await verify(this.diognosisJustificationDisabled)
-    await verifyAndClick(this.selectAllOn)
-    await verifyAndClick(this.Done)
-    await verifyAndClick(this.generalSettings)
-    await verify(this.selectAllOff)
-    await verify(this.cdss)
-    await verify(this.diognosisJustification)
-    await verifyAndClick(this.Done)
+  async launguageAndGeneralSettings() {
+    await verifyAndClick(this.launguage);
+    await verifyAndClick(this.spanish);
+    await verify(this.Idioma);
+    await verifyAndClick(this.launguage);
+    await verifyAndClick(this.english);
+    await verifyAndClick(this.generalSettings);
+    await verifyAndClick(this.selectAllOff);
+    await verifyAndClick(this.Done);
+    await verifyAndClick(this.generalSettings);
+    await verify(this.cdssDisabled);
+    await verify(this.diognosisJustificationDisabled);
+    await verifyAndClick(this.selectAllOn);
+    await verifyAndClick(this.Done);
+    await verifyAndClick(this.generalSettings);
+    await verify(this.selectAllOff);
+    await verify(this.cdss);
+    await verify(this.diognosisJustification);
+    await verifyAndClick(this.Done);
   }
 }
 
-export default new SettingsPage()
+export default new SettingsPage();

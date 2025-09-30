@@ -83,7 +83,7 @@ class RecordingPage {
     return $("~Pause");
   }
   get patientCreatedOk() {
-    return $("~Ok");
+    return $("~OK");
   }
   get resumeRecording() {
     return $('//XCUIElementTypeButton[@name="Resume Recording"]');
@@ -319,7 +319,7 @@ class RecordingPage {
     return $("~mail");
   }
   get emailSentOk() {
-    return $("~Ok");
+    return $("~OK");
   }
   get printBtn() {
     return $("~print");
@@ -480,15 +480,15 @@ class RecordingPage {
   async Audio() {
     await driver.pause(4000);
     await AudioManeger.playAudio("english");
-    await driver.pause(10000);
+    await driver.pause(5000);
     await aeroplaneModeOn();
     await driver.pause(10000);
     await verify(this.offlineModeRTranscription);
-    await driver.pause(60000);
+    await driver.pause(30000);
     await aeroplaneModeOff();
     await driver.pause(10000);
     await LiveTranscript();
-    await driver.pause(50000);
+    await driver.pause(30000);
     await AudioManeger.stopAudio();
   }
   async recordAudio() {
@@ -545,7 +545,9 @@ class RecordingPage {
     await driver.execute("mobile: swipe", { direction: "down" });
     await driver.execute("mobile: swipe", { direction: "down" });
   }
-
+get C_OK(){
+  return $('~OK')
+}
   async multiple_Conversation() {
     await waitForElement(this.AddConversation);
     await verifyAndClick(this.AddConversation);
@@ -569,7 +571,7 @@ class RecordingPage {
     console.log(
       "here we have verified that enounter will not be finalized consisting of draft transcript"
     );
-    await verifyAndClick(this.ok);
+    await verifyAndClick(this.C_OK);
     await verifyAndClick(this.resumeConversationForMultipleConverstionScenario);
     await verifyAndClick(
       this.resumeConversationForMultipleConverstionScenarioYes
@@ -599,8 +601,8 @@ class RecordingPage {
   }
   async third_Conversation_For_Existing_Patient() {
     await this.multiple_Conversation();
-    await this.PrevEncounterRef.click();
-    await this.PrevEncounterRefNo.click();
+    await verify(this.PrevEncounterRef);
+    await verifyAndClick(this.PrevEncounterRefNo);
   }
 
   async finalize_Encounter() {
@@ -826,8 +828,8 @@ class RecordingPage {
     await this.discriptionTextField.setValue("O positive");
     await verifyAndClick(this.add);
     await verifyAndClick(this.save);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await this.bloodGroup("Blood Group");
     await this.bloodName("O positive");
   }
@@ -848,8 +850,8 @@ class RecordingPage {
     await this.SoapNoteScreenTxtFieldEntry.setValue("Blood Group O negitive");
     await verifyAndClick(this.doneBtn);
     await verifyAndClick(this.send);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK);
+    await verifyAndClick(this.C_OK);
     await this.bloodGroup("Blood Group");
     await this.bloodName("O negitive");
   }
@@ -861,8 +863,8 @@ class RecordingPage {
     await driver.pause(2000);
     await verifyAndClick(this.MicStop);
     await verifyAndClick(this.send);
-    await waitForElement(this.ok);
-    await verifyAndClick(this.ok);
+    await waitForElement(this.C_OK)
+    await verifyAndClick(this.C_OK);
     await this.bloodGroup("Blood Group");
     await this.bloodName("B negative");
   }

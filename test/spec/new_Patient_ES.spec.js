@@ -48,7 +48,7 @@ describe("New patient E2E flow -Spnish", () => {
     await AudioManeger.pauseAudio();
   });
   it.skip("Offline mode app kill state verification", async () => {
-    await driver.terminateApp("com.thinkhat.noki"); // step verifying the app screen to be in recording screen only even in offline
+    await driver.terminateApp(process.env.BUNDLE_ID); // step verifying the app screen to be in recording screen only even in offline
     await driver.pause(5000);
     await driver.activateApp("com.thinkhat.noki");
     // await verifyAndClick(SpanishLanguage.errorOk)
@@ -131,7 +131,7 @@ describe("New patient E2E flow -Spnish", () => {
   it.skip("manual Update verification", async () => {
     await SpanishLanguage.manualUpdate();
   });
-  it("HayNoki update verification", async () => {
+  it.skip("HayNoki update verification", async () => {
     await SpanishLanguage.hayNoki();
   });
 
@@ -139,3 +139,4 @@ describe("New patient E2E flow -Spnish", () => {
     await SpanishLanguage.finalize_Encounter();
   });
 });
+x

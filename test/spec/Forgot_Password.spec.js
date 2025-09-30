@@ -35,7 +35,9 @@ it('Verify  message not entering  email in forgot password screen', async() => {
 it('Verify success message for entering correct email in forgot password screen', async() => {
   await LoginPage.restartApp()
   await verifyAndClick(LoginPage.forgotPassword)
-  await LoginPage.enterForgotPasswordEmail('bheema.badri@thinkhat.ai')
+  console.log("Email env:", process.env.Email);
+
+  await LoginPage.enterForgotPasswordEmail(process.env.Email)
   await verify(LoginPage.successMessageForResetLink)
   await verifyAndClick(LoginPage.continueToLogin)
 

@@ -15,7 +15,7 @@ describe('Setting screen elments and functinalily verification -Spanish',() => {
     it.skip('Verify Settings screen Profille Edit ', async() => {
         await SpanishLanguage.profileSettingScreen()
     });
-    it('Verify Settings screen Profille Edit ', async() => {
+    it('Verify Settings screen support verification ', async() => {
         await LoginPage.restartApp()
         await SpanishLanguage.support_VerifiCation()
 

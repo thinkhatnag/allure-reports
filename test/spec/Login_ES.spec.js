@@ -14,7 +14,7 @@ describe('Login screen all scenarios in Spanish ',() => {
       });
     it('Verify error message when password is not provided {TC03}', async() => {
         
-        await SpanishLanguage.enterEmail('bheema.badri@thinkhat.ai')
+        await SpanishLanguage.enterEmail('nag.subbarayudu@thinkhat.ai')
         // await SpanishLanguage.selectMultiTenant();
         await SpanishLanguage.clickLogin();
         await verify(SpanishLanguage.errorMessage);
@@ -22,7 +22,7 @@ describe('Login screen all scenarios in Spanish ',() => {
 
     it('Verify error message when an incorrect password is entered {TC04}', async() => {
         
-        await SpanishLanguage.enterEmail('bheema.badri@thinkhat.ai')
+        await SpanishLanguage.enterEmail('nag.subbarayudu@thinkhat.ai')
         await SpanishLanguage.enterPassword('123456')
         // await SpanishLanguage.selectMultiTenant();
         await SpanishLanguage.clickLogin();
@@ -51,16 +51,16 @@ describe('Login screen all scenarios in Spanish ',() => {
   
     it('Verify  message when the password is wrong', async() => {
         
-        await SpanishLanguage.enterEmail('bheema.badri@thinkhat.ai')
-        await SpanishLanguage.enterPassword('Abcd1234')
+        await SpanishLanguage.enterEmail(process.env.Email)
+        await SpanishLanguage.enterPassword('Welcome@124')
         // await SpanishLanguage.selectMultiTenant();
         await SpanishLanguage.clickLogin();
         await verify(SpanishLanguage.WrongPassword)
     });
        it('Verify  message when the email is multitenent{TC08}', async() => {
         
-        await SpanishLanguage.enterEmail('bheema.badri@thinkhat.ai')
-        await SpanishLanguage.enterPassword('Abcd1234$')
+        await SpanishLanguage.enterEmail(process.env.Email)
+        await SpanishLanguage.enterPassword(process.env.Password)
         // await SpanishLanguage.selectMultiTenant();
         await SpanishLanguage.clickLogin();
         await verify(SpanishLanguage.homescreenAnimation)

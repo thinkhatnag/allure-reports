@@ -53,9 +53,9 @@ describe('Existing patient E2E flow in English', () => {
     
   });
   it('Offline mode app kill state verification', async() => {
-    await driver.terminateApp("com.thinkhat.noki"); // step verifying the app screen to be in recording screen even in offline
+    await driver.terminateApp(process.env.BUNDLE_ID); // step verifying the app screen to be in recording screen even in offline
     await driver.pause(10000);
-    await driver.activateApp("com.thinkhat.noki");
+    await driver.activateApp(process.env.BUNDLE_ID);
     // await verifyAndClick(RecordingPage.errorOk)
     await waitForElement(RecordingPage.ContinueBtn);
     await verifyAndClick(RecordingPage.ContinueBtn);
@@ -74,7 +74,9 @@ describe('Existing patient E2E flow in English', () => {
     );
     await driver.pause(5000);
     await verify(RecordingPage.offlineConversationSaved);
-    
+    // await driver.terminateApp(process.env.BUNDLE_ID); // step verifying app is killed after the stop button is clicked 
+    // await driver.pause(5000);
+    // await driver.activateApp(process.env.BUNDLE_ID);
     await driver
       .action("pointer")
       .move({ duration: 0, x: 355, y: 22 })

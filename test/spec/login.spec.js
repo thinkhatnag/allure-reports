@@ -11,7 +11,7 @@ describe('Login screen all senarios in English',() => {
       });
     it('Verify error message when password is not provided {TC03}', async() => {
         await LoginPage.restartApp()
-        await LoginPage.enterEmail('bheema.badri@thinkhat.ai')
+        await LoginPage.enterEmail('nag.subbarayudu@thinkhat.ai')
         // await LoginPage.selectMultiTenant();
         await LoginPage.clickLogin();
         await verify(LoginPage.errorMessage);
@@ -19,7 +19,7 @@ describe('Login screen all senarios in English',() => {
 
     it('Verify error message when an incorrect password is entered {TC04}', async() => {
         await LoginPage.restartApp()
-        await LoginPage.enterEmail('bheema.badri@thinkhat.ai')
+        await LoginPage.enterEmail('nag.subbarayudu@thinkhat.ai')
         await LoginPage.enterPassword('123456')
         // await LoginPage.selectMultiTenant();
         await LoginPage.clickLogin();
@@ -28,7 +28,7 @@ describe('Login screen all senarios in English',() => {
 
     it('Verify error message( when email is not provided {TC05}', async() => {
         await LoginPage.restartApp()
-        await LoginPage.enterEmail(' ')
+        await LoginPage.enterEmail('  ')
         await LoginPage.clickLogin();
         await verify(LoginPage.emailError);
     });
@@ -48,7 +48,7 @@ describe('Login screen all senarios in English',() => {
   
     it('Verify  message when the password is wrong', async() => {
         await LoginPage.restartApp()
-        await LoginPage.enterEmail('bheema.badri@thinkhat.ai')
+        await LoginPage.enterEmail('nag.subbarayudu@thinkhat.ai')
         await LoginPage.enterPassword('Welcome@124')
         // await LoginPage.selectMultiTenant();
         await LoginPage.clickLogin();
@@ -56,8 +56,8 @@ describe('Login screen all senarios in English',() => {
     });
        it('Verify  message when the email is multitenent{TC08}', async() => {
         await LoginPage.restartApp()
-        await LoginPage.enterEmail('bheema.badri@thinkhat.ai')
-        await LoginPage.enterPassword('Abcd1234$')
+        await LoginPage.enterEmail(process.env.Email)
+        await LoginPage.enterPassword(process.env.Password)
         // await LoginPage.selectMultiTenant();
         await LoginPage.clickLogin();
         await verify(LoginPage.homescreenAnimation)
