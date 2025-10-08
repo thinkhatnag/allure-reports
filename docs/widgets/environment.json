@@ -1,1 +1,1 @@
-[]
+[{"values":["Test"],"name":"Environment"},{"values":["IOSiPhone16"],"name":"device_name"},{"values":[""],"name":"platform_name"},{"values":["18.6.2"],"name":"platform_version"},{"values":["1.2.5(2025100101)"],"name":"app_version"},{"values":["XCUITest"],"name":"automation_engine"}]
