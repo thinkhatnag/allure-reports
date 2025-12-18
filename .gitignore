@@ -1,8 +1,7 @@
 
 node_modules
 _results_
-allure-results
-allure-report
+
 app
 qa-reportsNokiIOS
 .env
